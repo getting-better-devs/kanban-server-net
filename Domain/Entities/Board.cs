@@ -1,6 +1,8 @@
-﻿namespace Domain.Entities;
+﻿using Domain.Primitives;
 
-public class Board
+namespace Domain.Entities;
+
+public class Board : Entity
 {
-    
+    public string Name { get; set; }
 }

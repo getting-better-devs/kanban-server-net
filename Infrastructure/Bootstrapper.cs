@@ -6,16 +6,20 @@ namespace Infrastructure;
 
 public static class Bootstrapper
 {
-    public static void AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
+    public static IServiceCollection AddInfrastructure(this IServiceCollection services)
     {
         AddDbContext(services);
+
+        return services;
     }
     
-    private static void AddDbContext(IServiceCollection services) 
+    private static IServiceCollection AddDbContext(IServiceCollection services) 
     {
         services.AddDbContext<ApplicationDbContext>(options =>
         {
             options.UseNpgsql("Host=localhost;Database=postgres;Username=postgres;Password=postgres");
         });
+
+        return services;
     }
 }
