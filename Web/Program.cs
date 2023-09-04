@@ -1,19 +1,22 @@
 using Application;
 using Infrastructure;
+using Infrastructure.Swagger;
 using Presentation;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.Services.AddControllers();
+builder.Services.AddControllers()
+    .AddApplicationPart(typeof(Presentation.Bootstrapper).Assembly);
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+
 builder.Services
     .AddInfrastructure()
     .AddApplication()
-    .AddPresentation();
+    .AddPresentation()
+    .AddSwagger();
 
 var app = builder.Build();
 
