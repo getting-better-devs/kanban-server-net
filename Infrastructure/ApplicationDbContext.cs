@@ -1,5 +1,6 @@
 ﻿using Domain.Entities;
 using Microsoft.EntityFrameworkCore;
+using Task = Domain.Entities.Task;
 
 namespace Infrastructure;
 
@@ -9,7 +10,7 @@ public class ApplicationDbContext : DbContext
         : base(options)
     { }
     
-    public required DbSet<Board> Boards { get; set; }
+    public required DbSet<Task> Tasks { get; set; }
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
