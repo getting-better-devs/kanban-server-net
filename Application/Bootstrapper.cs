@@ -1,4 +1,5 @@
 ﻿using Application.UseCases.Task.Create;
+using Application.UseCases.Task.GetAll;
 using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -22,6 +23,7 @@ public static class Bootstrapper
     private static void AddUseCases(this IServiceCollection services)
     {
         services
-            .AddScoped<ICreateTaskUseCase, CreateTaskUseCase>();
+            .AddScoped<ICreateTaskUseCase, CreateTaskUseCase>()
+            .AddScoped<IGetAllTasksUseCase, GetAllTasksUseCase>();
     }
 }

@@ -1,8 +1,9 @@
 ﻿using Application.DTOs.Task;
+using Domain.Primitives.Result;
 
 namespace Application.UseCases.Task.Create;
 
 public interface ICreateTaskUseCase
 {
-    Task<CreateTaskDto> ExecuteAsync(CreateTaskDto createTaskDto);
+    Task<Result> ExecuteAsync(CreateTaskDto createTaskDto);
 }
