@@ -2,6 +2,7 @@ using Application;
 using Infrastructure;
 using Infrastructure.Swagger;
 using Presentation;
+using Web.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,6 +18,8 @@ builder.Services
     .AddApplication()
     .AddPresentation()
     .AddSwagger();
+
+builder.Services.AddMvc(option => { option.Filters.Add(typeof(ExceptionFilter)); });
 
 var app = builder.Build();
 
